@@ -1,0 +1,13 @@
+*{
+    text-align: center;
+    text-decoration: none;
+}
+
+h2:hover{
+    color: aqua;
+}
+
+button{
+    background-color:yellow;
+    color: black;
+}

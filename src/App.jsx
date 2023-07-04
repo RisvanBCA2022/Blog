@@ -15,7 +15,7 @@ const App = () => {
          
           <Route path="/" element={<PostForm />} />
           <Route path="/postlist" element={<PostList />} />
-          <Route path="/postcontent" element={<PostContent />} />
+          <Route path="/postcontent/:id" element={<PostContent />} />
 
         </Routes>
       </BlogProvider>

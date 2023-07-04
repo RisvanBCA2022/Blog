@@ -1,10 +1,18 @@
 import React, { useContext } from 'react';
 import { BlogContext } from './Context';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './bloglist.css'
 
-const PostList = () => {
+const BlogList = () => {
+  const nav = useNavigate()
   const { posts } = useContext(BlogContext);
+
+  const clickHandle =(e)=>{
+    const id = e.target.id
+    console.log(id);
+    
+    nav(`/postcontent/${id}`)
+  }
 
   return (
     <div>
@@ -12,13 +20,13 @@ const PostList = () => {
       {posts.map((post, index) => (
         <div key={index}>
             
-                  <Link to="/postcontent"><h2>{post.title}</h2></Link>
+                  <h2 id={post.id} onClick={clickHandle}>{post.title}</h2>
                   
         </div>
       ))}
-      <Link to="/"><button>Back</button></Link>
+      <button onClick={()=>{nav('/')}}>Back</button>
     </div>
   );
 };
 
-export default PostList;
+export default BlogList;

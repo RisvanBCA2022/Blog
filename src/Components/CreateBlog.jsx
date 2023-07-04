@@ -11,7 +11,7 @@ const PostForm = () => {
   const navigate=useNavigate()
   const handleSubmit = (e) => {
     e.preventDefault();
-    addPost({ title, content });
+    addPost({ title:title, content:content ,id:Date.now()});
     setTitle('');
     setContent('');
     navigate('/postlist');

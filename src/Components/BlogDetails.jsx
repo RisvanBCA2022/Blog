@@ -1,14 +1,19 @@
 import React, { useContext } from 'react';
 import { BlogContext } from './Context';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const PostContent = () => {
   const { posts } = useContext(BlogContext);
 
+  const {id} =useParams()
+
+  const filterd = posts.filter((e)=>e.id===parseInt(id))
+  console.log(filterd);
+
   return (
     <div>
-      {posts.map((post, index) => (
-        <div key={index}>
+      {filterd.map((post) => (
+        <div key={post.id}>
           <h2>{post.title}</h2>
           <p>{post.content}</p>
         </div>
